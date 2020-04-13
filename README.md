@@ -29,6 +29,16 @@ The goals / steps of this project are the following:
 
 ---
 
+Code Descriptions:
+
+* `lanedetection_depends.py`: Contains all the functions and pipelines for this project.
+* `test_calib.py`: Test code for camera calibration.
+* `test_perspective.py`: Test code for perspective transform.
+* `test_pipeline.py`: Test code for executing overall pipeline onto test images.
+* `test_pipeline_video.py`: Main execution file. Code for executing overall pipeline onto test videos.
+
+---
+
 ### Writeup / README
 
 #### 1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.
