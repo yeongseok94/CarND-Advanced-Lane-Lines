@@ -134,4 +134,8 @@ Here's a [link to my video result](./output_videos/project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+My lane detection pipeline works well for when there are not much lightness and color change in horizontal direction within lane line area.
+However, there can be serious lightness change between daytime and nighttime, or there can be steep color or lightness change other than lane line due to defects on road.
+
+To make robust to defects on road, we can add additional algorithms within lane line seach window so that we can distinguish pixels which is out of mainstream line.
+Or, we can make modification on thresholds with respect to lightness so that the pipeline itself adjust to the lightness of lane line area.
