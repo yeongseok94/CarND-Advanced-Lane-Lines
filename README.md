@@ -60,12 +60,12 @@ I then used the output `objpoints` and `imgpoints` to compute the camera calibra
 
 #### 1. Provide an example of a distortion-corrected image.
 
-Using the methods already shown in previous section, I get the distortion-corrected image of `./test_images/test1.jpg`.
+Using the methods already shown in previous section, I get the distortion-corrected images. This is the example of `./test_images/test1.jpg`.
 
-Before distortion correction:
+* Before distortion correction:
 ![alt text][image2]
 
-After distortion correction:
+* After distortion correction:
 ![alt text][image2.1]
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
