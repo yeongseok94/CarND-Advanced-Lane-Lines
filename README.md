@@ -20,8 +20,8 @@ The goals / steps of this project are the following:
 [image2.1]: ./output_images/test2_undist.jpg "Road Transformed"
 [image3]: ./output_images/test2_binary.jpg "Binary Example"
 [image4]: ./output_images/straight_warped2.png "Warp Example"
-[image5]: ./examples/color_fit_lines.jpg "Fit Visual"
-[image6]: ./examples/example_output.jpg "Output"
+[image5]: ./output_images/test2_laneline.png "Fit Visual"
+[image6]: ./output_images/test2_final.png "Output"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -104,17 +104,19 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+For first frame, I identified lane line pixels by histogram peaks and windows method which is introduced in the lecture. From the second frame, I identified lane line pixels around previous frame's polynominal fit of lane lines. Then, I obtained each line's 2nd order polynominal fit using `scipy.optimize.curve_fit()`. If obtained lane line polynominal fit is not parallel enough, then I obtained refitted the lane line with the less lane line pixels to be approximately parallel to other lane line.
+
+This procedure is included in `LaneDetection.search_laneline_window()` and `LaneDetection.search_laneline_nearpoly()`. Example result looks like:
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I did this in `Line.update()` so that I can update lane line class variables each step of video frames.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+I implemented this step in `LaneDetection.process_image()`. This function includes whole process within one frame. Here is an example of my result on a test image:
 
 ![alt text][image6]
 
@@ -124,7 +126,7 @@ I implemented this step in lines # through # in my code in `yet_another_file.py`
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./output_videos/project_video.mp4)
 
 ---
 
